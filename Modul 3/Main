@@ -1,0 +1,51 @@
+package Modul3.main;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        SinglyLinkedList<Pegawai> linkedlist = new SinglyLinkedList<>();
+        Scanner input = new Scanner(System.in);
+        int pilihan1, pilihan2;
+        String nip, nama, divisi;
+        boolean looping = true;
+
+        while(looping){
+            System.out.println("\n1. Input Data\n2. Hapus Data\n3. " +
+                    "Cetak List Pegawai\n4. Keluar");
+            int inputan = input.nextInt();
+
+            if (inputan == 1) {
+                System.out.println("Masukkan nip, nama, dan divisi pegawai");
+                nip = input.next();
+                nama = input.next();
+                divisi = input.next();
+
+                System.out.println("Tambahkan data di awal list (1/2)");
+                pilihan1 = input.nextInt();
+                if (pilihan1 == 1) {
+                    linkedlist.insertAtFront(new Pegawai(nip, nama, divisi));
+                }
+                else if (pilihan1 == 2){
+                    linkedlist.insertAtBack(new Pegawai(nip, nama, divisi));
+                }
+            }
+            else if (inputan == 2) {
+                System.out.println("Hapus data di awal list (1/2)");
+                pilihan2 = input.nextInt();
+                if (pilihan2 == 1) {
+                    linkedlist.removeFromFront();
+                }
+                else if (pilihan2 == 2){
+                    linkedlist.removeFromBack();
+                }
+            }
+            else if (inputan == 3) {
+                linkedlist.print();
+            }
+            else if (inputan == 4){
+                break;
+            }
+        }
+    }
+}
