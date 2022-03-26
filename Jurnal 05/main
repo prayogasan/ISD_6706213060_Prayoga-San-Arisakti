@@ -1,0 +1,44 @@
+package Jurnal0205.main;
+
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        QueueLL<String> queue = new QueueLL<>();
+        QueueLL<String> queueKedua = new QueueLL<>();
+
+        boolean out = false;
+        while (!out) {
+            System.out.println("Pilih menu: ");
+            System.out.println("1. Nama Pekerjaan");
+            System.out.println("2. Tampilkan Nama Pekerjaan");
+            System.out.println("3. Hapus nama pekerjaan dari daftar");
+            System.out.println("4. Tampilkan Semua");
+            int angka = input.nextInt();
+
+            switch(angka) {
+                case 1:
+                    System.out.println("Masukkan Nama Pekerjaan:");
+                    String pilihan = input.next();
+                    queue.enqueue(pilihan);
+                    queueKedua.enqueue(pilihan);
+                    break;
+                case 2:
+                    queue.printQueue();
+                    System.out.println("");
+                    break;
+                case 3:
+                    queue.dequeue(); // remove head element
+                    System.out.println("YEAY BERHASILL!!");
+                    break;
+                case 4:
+                    queueKedua.printQueue();
+                    System.out.println();
+                    break;
+                default:
+                    System.out.println("Yaaahh Keluar:(");
+            }
+        }
+    }
+}
